@@ -19,6 +19,10 @@ user_input = st.text_input("Enter your prompt")
 if st.button("Generate"):
   if user_input:
     output = modelResponce(user_input)
+<<<<<<< HEAD
     st.write(f"Generated Text: {output}")
+=======
+    st.write(output)
+>>>>>>> 73b11af (Initial commit)
   else:
     st.warning("Please enter a prompt.")
