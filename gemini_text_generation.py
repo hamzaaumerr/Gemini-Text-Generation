@@ -7,19 +7,17 @@ if 'gemini_api_key' not in st.session_state:
 st.set_page_config(page_title="Text Generation", layout="centered")
 st.title("Google Gemini Text Generation")
 
-gemini_api_key = st.text_input("Enter your Google Gemini API Key", type="password", key="input_1")
-
 if st.session_state.gemini_api_key == "":
-  st.session_state.gemini_api_key = st.text_input("Enter your Google Gemini API Key", type="password", key="input_2")
+  st.session_state.gemini_api_key = st.text_input("Enter your Google Gemini API Key", type="password", key="input_1")
   if st.session_state.gemini_api_key:
     st.success("API Key saved successfully!")
 else:
     st.text("API Key is stored in session.")
 
-user_input = st.text_input("Enter your prompt", key="input_3")
+user_input = st.text_input("Enter your prompt", key="input_2")
 
 def model_responce(user_input):
-  genai.configure(api_key=gemini_api_key)
+  genai.configure(api_key=st.session_state.gemini_api_key)
   model = genai.GenerativeModel('gemini-1.5-flash')
   response = model.generate_content(user_input)
   return response.text
