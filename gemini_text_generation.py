@@ -16,7 +16,7 @@ if st.session_state.gemini_api_key == "":
 else:
     st.text("API Key is stored in session.")
 
-user_input = st.text_input("Enter your prompt", key="input_2")
+user_input = st.text_input("Enter your prompt", key="input_3")
 
 def model_responce(user_input):
   genai.configure(api_key=gemini_api_key)
