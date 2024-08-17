@@ -23,7 +23,7 @@ def model_responce(user_input):
   return response.text
 
 if st.button("Generate"):
-  if not st.session_state.api_key:
+  if not st.session_state.gemini_api_key:
     st.warning("Please enter your Google Gemini API key.")
   elif not user_input:
     st.warning("Please enter a prompt.")
